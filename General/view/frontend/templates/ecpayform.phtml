@@ -1,0 +1,16 @@
+<?php
+/**
+* @var $block \Ecpay\General\Block\Onepage\RedirectToEcpay
+*/
+?>
+
+<div id="loading-spinner">
+    <img src="<?= $block->escapeHtml($block->getViewFileUrl('Ecpay_General::images/icons8-loading.gif')) ?>" alt="Loading..." />
+    <p id="loading-text"><?= $block->escapeHtml(__('Redirect To ECPay')) ?></p>
+</div>
+
+<?php $formHtml = $block->getFormHtml(); ?>
+
+<?php if (!empty($formHtml)): ?>
+    <?= /* @noEscape */ $formHtml ?>
+<?php endif; ?>

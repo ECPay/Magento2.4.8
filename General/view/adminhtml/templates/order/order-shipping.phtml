@@ -1,0 +1,62 @@
+<?php
+/**
+* @var $block \Ecpay\General\Block\Adminhtml\Order\OrderShipping
+*/
+?>
+<link rel="stylesheet" type="text/css" href="<?= $block->escapeHtml($block->getViewFileUrl('Ecpay_General::css/order/shipping-block.css')) ?>">
+
+<section class="admin__page-section order-view-custom-block" id="shipping-block">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('Ecpay Shipping Infomation')) ?></span>
+    </div>
+
+    <div class="shipping-msg" id="shipping-msg" style="display: none;">
+        <span class="msg" id="shipping-msg-content"></span>
+    </div>
+
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item">
+            <div class="admin__page-section-item-title">
+                <span class="title"><?= $block->escapeHtml(__('Shipping Infomation')) ?></span>
+            </div>
+            <div class="admin__page-section-item-content shipping-info">
+                <label><?= $block->escapeHtml(__('Merchant Trade No：')) ?></label>
+                <span id="merchant_trade_no"></span>
+                <br>
+                <label><?= $block->escapeHtml(__('Ecpay Shipping No：')) ?></label>
+                <span id="all_pay_logistics_id"></span>
+                <br>
+                <label><?= $block->escapeHtml(__('CVS Payment No：')) ?></label>
+                <span id="cvs_payment_no"></span>
+                <br>
+                <label><?= $block->escapeHtml(__('Booking No：')) ?></label>
+                <span id="booking_note"></span>
+                <br>
+                <br>
+                <div id="csv_info"></div>
+            </div>
+            <br/>
+            <div id="shipping-btns-block">
+                <input type="button" class="action-default scalable action-save action-secondary" id="change_store_btn" value="<?= $block->escapeHtml(__('Choose Store')) ?>" style="display:none;" disabled />
+                <input type="button" class="action-default scalable action-save action-secondary" id="create_shipping_btn" value="<?= $block->escapeHtml(__('Create Logistic')) ?>" style="display:none;" disabled />
+                <input type="button" class="action-default scalable action-save action-secondary" id="print_shipping_btn" value="<?= $block->escapeHtml(__('Print Logistic')) ?>" style="display:none;" disabled />
+            </div>
+        </div>
+    </div>
+
+    <div id="print_form"></div>
+    <div id="map_form"></div>
+</section>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Ecpay_General/js/order/shipping-ajax": {
+            "baseUrl": <?= /* @noEscape */ $block->escapeJsQuote(json_encode($block->getBaseUrl(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT)) ?>,
+            "encryptData": <?= /* @noEscape */ $block->escapeJsQuote(json_encode($block->getEncryptData(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT)) ?>,
+            "shippingData": <?= /* @noEscape */ $block->escapeJsQuote(json_encode($block->getShippingData(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT)) ?>,
+            "shippingModuleEnable": <?= /* @noEscape */ $block->escapeJsQuote(json_encode($block->getLogisticModuleEnable(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT)) ?>
+        }
+    }
+}
+</script>
