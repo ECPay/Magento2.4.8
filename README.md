@@ -109,6 +109,7 @@ php bin/magento module:enable Ecpay_WebatmPaymentGateway
 php bin/magento module:enable Ecpay_TwqrPaymentGateway
 php bin/magento module:enable Ecpay_WeiXinPaymentGateway
 php bin/magento module:enable Ecpay_JkopayPaymentGateway
+php bin/magento module:enable Ecpay_IpassPaymentGateway
 
 php bin/magento module:enable Ecpay_LogisticCsvFamily
 php bin/magento module:enable Ecpay_LogisticCsvHilife

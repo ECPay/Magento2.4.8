@@ -1,5 +1,5 @@
 {
-    "name": "ecpay/magento2-module-jkopay-payment-gateway",
+    "name": "ecpay/magento2-module-ipass-payment-gateway",
     "type": "magento2-module",
     "version": "2.4.2604160",
     "license": [
@@ -14,7 +14,7 @@
     "autoload": {
         "files": [ "registration.php" ],
         "psr-4": {
-            "Ecpay\\JkopayPaymentGateway\\": ""
+            "Ecpay\\IpassPaymentGateway\\": ""
         }
     }
 }

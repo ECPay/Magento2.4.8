@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecpay\JkopayPaymentGateway\Model;
+namespace Ecpay\IpassPaymentGateway\Model;
 
 use Magento\Payment\Model\Method\AbstractMethod;
 use Magento\Quote\Api\Data\CartInterface;
@@ -13,9 +13,9 @@ class PaymentMethod extends AbstractMethod
      *
      * @var string
      */
-    protected $_code = 'ecpay_jkopay_gateway';
+    protected $_code = 'ecpay_ipass_gateway';
 
-    protected $_infoBlockType = 'Ecpay\\JkopayPaymentGateway\\Block\\Info';
+    protected $_infoBlockType = 'Ecpay\\IpassPaymentGateway\\Block\\Info';
 
     public function isAvailable(?CartInterface $quote = null)
     {
@@ -23,8 +23,8 @@ class PaymentMethod extends AbstractMethod
         $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
         $grandTotal  = $cart->getQuote()->getGrandTotal();
 
-        // 訂單金額不可小於1元或大於199999元
-        if (1 > $grandTotal || $grandTotal > 199999) {
+        // 訂單金額不可小於1元或大於50000元
+        if (1 > $grandTotal || $grandTotal > 50000) {
             return false;
         }
 
